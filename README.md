@@ -7,7 +7,7 @@
 ```js
 //将已有的input标签初始化为一个可捕获图片的input。
 media.init({
-    targetid: "idcard",//触发浏览器读取图片的input标签id 
+    id: "idcard",//触发浏览器读取图片的input标签id 
 	imageid: "imgshowid", //将浏览器选择的图片展示到页面上的img标签上,默认为null，即不展示选择的图片
 	canvasid:"canvasid", // 将选择的图片展示到页面的canvas标签上，默认为null，不展示图片。
     onNotSupported：fn(msg){
