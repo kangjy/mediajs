@@ -88,10 +88,15 @@ var media = (function() {
 		inputmedia = _initInput(options.id,"image");
 		inputmedia.onchange = function () {
 		  var ifile=inputmedia.files[0];
-		  console.log((ifile.type).indexOf("image"))
+		  if(options.onchange){
+		  	var result=options.onchange.call(this);
+		  	if(result){
+		  		return;
+		  	}
+		  }
 		  if((ifile.type).indexOf("image")>-1){
 		  	if(options.imageid){
-			  	_displayAsImage(ifile); // see Example 7
+			  	_displayAsImage(ifile);
 			}
 			if(options.canvasid){
 			  _drawOnCanvas(ifile);

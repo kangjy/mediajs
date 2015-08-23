@@ -5,8 +5,8 @@
 ##快速使用
 该库不依赖任何库，可直接在使用。
 ```js
-var i；
-camera.init({
+//将已有的input标签初始化为一个可捕获图片的input。
+media.init({
     targetid: "idcard",//触发浏览器读取图片的input标签id 
 	imageid: "imgshowid", //将浏览器选择的图片展示到页面上的img标签上,默认为null，即不展示选择的图片
 	canvasid:"canvasid", // 将选择的图片展示到页面的canvas标签上，默认为null，不展示图片。
@@ -18,5 +18,13 @@ camera.init({
 		//上传文件成功后，回调函数，obj为xhr对象。
 	}
 });
+/*
+	工具方法，将文件异步上传到后台
+	@parm  arrayfiles 上传图片的input节点数组，可上传多个文件
+	@parm  url	上传图片的后台url
+	@fn(obj) 上传成功后的回调函数，obj为xhr对象
+
+*/
+media.uploadimage(arrayfiles,url,fn)
 ```
 
