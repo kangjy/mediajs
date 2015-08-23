@@ -1,7 +1,7 @@
 /*
 	media.js v1.0
-	http://github.com/idevelop/camera.js
-	Author: kangjy (http://idevelop.github.com)
+	https://github.com/kangjy/mediajs
+	Author: kangjy (https://github.com/kangjy/mediajs)
 	License: MIT
 */
 var media = (function() {
@@ -39,14 +39,21 @@ var media = (function() {
 		将上传的图片用img展示
 	*/
 	function _displayAsImage(file) {
-	  var img=document.getElementById(options.imageid);
-	  console.log(img);
-	  var imgURL = URL.createObjectURL(file);
-	      //img = document.createElement('img');
-	  img.onload = function() {
-	    URL.revokeObjectURL(imgURL);
-	  };
-	  img.src = imgURL;
+		window.URL = window.URL || window.webkitURL;
+		var img=document.getElementById(options.imageid);
+		if (window.URL){
+			var imgURL = URL.createObjectURL(file);
+			img.onload = function() {
+		      URL.revokeObjectURL(imgURL);
+		    };
+		    img.src = imgURL;
+		}else if(window.FileReader){
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				img.src=e.target.result;
+			}
+			reader.readAsDataURL(file);
+		}
 	}
 	/*
 		将上传的图片用canvas展示

@@ -17,18 +17,20 @@
 			text-align: center;
 			color: #fff;
 			position: relative;
+			text-decoration:none;
 		}
 	</style>
 </head>
 <body>
 	<div>
-		<a class="btn">
+		<a class="btn" href="#none">
 			上传照片
 			<input name="idcard" type="file" id="idcard" style="font-size: 118px;cursor: pointer;width: 100%;height:100%;pointer;position: absolute;left: 0;top: 0; z-index:999;filter:alpha(opacity=0);opacity:0;"/>
 		</a>
 		
 	</div>
-	<img id="showimg" style="width:300px;height:400px">
+	<img id="showimg" style="width:300px;height:400px"/>
+	<canvas id="showimg" style="width:300px;height:400px"/>
 </body>
 <script type="text/javascript">
 	media.init({
