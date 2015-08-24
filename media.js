@@ -81,7 +81,7 @@ var media = (function() {
 	*/
 	function _initInput(id,mediatype){
 		var minput=document.getElementById(options.id);
-		minput.setAttribute('capture', "camera");
+		minput.setAttribute('capture', "");
 		minput.setAttribute('accept', "image/*");
 		return minput;
 	}
